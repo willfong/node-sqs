@@ -1,0 +1,18 @@
+{
+	"name": "node-sqs",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "git@github.com:willfong/node-sqs.git",
+	"author": "Will Fong <willfong@hey.com>",
+	"license": "MIT",
+	"scripts": {
+		"publisher": "node -r dotenv/config publisher.mjs",
+		"consumer": "node -r dotenv/config consumer.mjs"
+	},
+	"dependencies": {
+		"@aws-sdk/client-sqs": "^3.87.0"
+	},
+	"devDependencies": {
+		"dotenv": "^16.0.1"
+	}
+}
