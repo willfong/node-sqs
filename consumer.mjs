@@ -6,8 +6,8 @@ const delay = (time) => {
 
 // Business Logic
 const processMessage = async (body, attributes) => {
-	console.log("Processing message...(3 minute sleep)");
-	await delay(3 * 60 * 1000);
+	//console.log("Processing message...(3 minute sleep)");
+	//await delay(3 * 60 * 1000);
 	const payload = JSON.parse(body);
 	console.log(attributes);
 	console.log(payload);
@@ -24,7 +24,11 @@ const run = async () => {
 		SQS.heartbeatStop();
 		if (result) {
 			await SQS.deleteMessage(message.receiptHandle);
+		} else {
+			console.log("Something went wrong");
 		}
 	}
+	SQS.disconnect();
+	console.log("finished");
 };
 run();

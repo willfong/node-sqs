@@ -11,6 +11,10 @@ const sqsClient = new SQSClient({ region: process.env.AWS_REGION });
 
 const queueURL = process.env.AWS_SQS_URL;
 
+export const disconnect = () => {
+	sqsClient.destroy();
+};
+
 export const sendTask = async (taskName, payload) => {
 	const params = {
 		DelaySeconds: 10,
